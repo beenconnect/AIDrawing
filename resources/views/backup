@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Header Example</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/fourth-style.css">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: "Manrope", sans-serif;
+
+}
+
+/* Container for the loading message and spinner */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  z-index: 9999;
+  color: white;
+  font-size: 18px;
+  text-align: center; /* Center text inside the container */
+}
+
+/* Spinner styling */
+.spinner {
+    margin:0;
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+/* Animation for the spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Optional: Style for the loading message */
+.loading-container p {
+  margin: 0; /* Remove default margin */
+}
+
+
+
+ /* navbar styling started here */
+.navbar{
+    box-shadow: 0 1px 3px rgba(134,134,134,0.12), 0 1px 2px rgba(134,134,134,0.12);
+}
+.navbar-brand{
+    font-size: 1.5rem;
+    color: #000000;
+}
+.navbar-brand strong{
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+  .navbar-nav .nav-link {
+    margin-right: 15px;
+    color: #171313;
+    font-size: 1rem;
+  }
+
+  .dropdown-item {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #464646;
+  }
+  .dropdown-item img{
+    margin-right: 5px;
+  }
+
+
+  .btn-deploy{
+    background:  #E5365C;
+    color: #FFFFFF;
+    padding: 10px 35px;
+  }
+  .btn-deploy:hover{
+    border: 2px solid  #E5365C;
+    padding: 10px 35px;
+  }
+  .btn-stop{
+    border: 2px solid  #E5365C;
+    padding: 10px 35px;
+    color: #E5365C;
+  }
+  .btn-stop:hover{
+    background:  #E5365C;
+    color: #FFFFFF;
+    padding: 10px 35px;
+  }
+
+  .btn-link {
+    font-size: 1.2rem;
+    padding: 0;
+    rotate: 90deg;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+
+
+.btn-link.dots::after {
+    content: '\2022 \2022 \2022'; /* Unicode for dots */
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    color: black;
+  }
+  .dropdown-menu {
+    min-width: 100px;
+  }
+
+
+  /* navbar styling ended here */
+
+  /*hero section styling started here */
+
+  .hero-section{
+    display: flex;
+    flex-direction: column;
+   
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .hero-heading{
+    font-size: 2rem;
+    color: #171313;
+    font-weight: 700;
+  }
+
+  .search-box{
+    display: flex;
+    gap: 30px;
+    padding: 0 10px;
+    
+  }
+
+  .search-box input{
+    flex: 1;
+    padding: 10px 20px;
+    border: 1px solid #DFDFDF;
+    outline: none;
+    background: #FFFFFF;
+    border-radius: 5px;
+
+  }
+
+  .search-box button{
+    display: block;
+    padding: 10px 50px;
+    border-radius: 5px;
+    background: #E5365C;
+    color: #f4f4f4;
+    border: none;
+  }
+  .search-box button:hover{
+    border: 2px solid  #E5365C;
+    background: #f4f4f4;
+    color: #000000;
+
+    
+  }
+
+  input ::placeholder{
+    color: #464646;
+  }
+  
+
+  .progress-steps {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #313131;
+    text-align: center;
+  }
+
+
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    /* background: #EAEAEA; */
+    
+    
+}
+
+  .swiper-slide {
+    
+    text-align: center;
+    font-size: 18px;
+    background: #fff !important;
+    display: flex;
+    padding: 0px !important;
+    border-radius: 30px !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* margin -bottom: 20px; */
+  }
+
+  .custom-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #868686;
+    opacity: 1;
+    margin: 0 5px;
+    border-radius: 50%;
+  }
+
+  .custom-pagination .swiper-pagination-bullet-active {
+    background-color: #E5365c;
+    width: 20px;
+    border-radius: 20px;
+  }
+ 
+  /*hero section styling ended here */
+
+
+
+  .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    content: 'prev';
+    display: none ;
+}
+
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+  content: 'next';
+display: none;
+}
+
+
+  /* Responsive Design */
+/* Tablet - Medium screen sizes */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 0 15px;
+        gap: 15px;
+    }
+
+    .hero-heading {
+        font-size: 1.8rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .search-box button {
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .swiper-slide img {
+        width: 80%;
+        height: auto;
+    }
+
+    .progress-steps {
+        font-size: 12px;
+    }
+}
+
+/* Mobile - Small screen sizes */
+@media (max-width: 576px) {
+    .hero-heading {
+        font-size: 1.5rem;
+    }
+
+    .search-box {
+        gap: 5px;
+    }
+
+    .search-box input,
+    .search-box button {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .progress-steps {
+        font-size: 10px;
+    }
+
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+    }
+}
+  </style>
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg  " >
+    <div class="container px-lg-5 py-1">
+      <a class="navbar-brand" href="#">
+        <strong>Illustration.</strong><span>AI</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+             <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Downloads
+            </a>
+            <ul class="dropdown-menu">
+              
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/mdi_apple.svg" alt=""> App store</a></li>
+              <!-- <li><hr class="dropdown-divider"></li> -->
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/logos_google-play-icon.svg" alt=""> App store</a></li>
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/simple-icons_huawei.svg" alt=""> App Gallery</a></li>
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/foundation_social-amazon.svg" alt=""> App store</a></li>
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/ri_meta-fill.svg" alt=""> Meta Guest Store</a></li>
+              <li><a class="dropdown-item" href="#"><img src="assets/dropdown images/tabler_device-vision-pro.svg" alt=""> Apple vision pro</a></li>
+             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url('/fouthPages')}}">Generate illustration</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+            <button class="btn btn-outline me-2 btn-stop">Stop</button>
+            <button class="btn btn-deploy "  >Deploy</button>
+            
+            
+            <div class="dropdown">
+                <button class="btn btn-link dots" id="dropdownMenuDots" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuDots">
+                  <li><a class="dropdown-item" href="#">Link 1</a></li>
+                  <li><a class="dropdown-item" href="#">Link 2</a></li>
+                  <li><a class="dropdown-item" href="#">Link 3</a></li>
+                </ul>
+              </div>
+        </form>
+      </div>
+    </div>
+  </nav>
+ <!-- nav ended here -->
+  <!-- hero-section started fro there -->
+<div id="loadingMessage" style="display:none;" class="loading-container">
+  
+  <p>Loading, search in progress...</p>
+</div>
+
+  <section>
+    <div class="hero-section  py-3">
+      <div class="container mb-5">
+      <div class="hero-heading">
+        <h3>How can i assist you?</h3> 
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="search-query" placeholder="Generate a handsome young boy illustration with aggressive reaction">
+        <button id="search-button" type="submit">Search</button>
+      </div>
+
+      
+      <div class="progress-steps pt-5 mb-0" id="progress-steps" style="display:none;" >
+  Steps: <span id="step-number">1</span>/<span id="total-steps">10</span>
+</div>
+
+    </div>
+
+     <div class="container pb-5" id="image-container" >
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        <!-- Swiper -->
+  <div class="swiper  pb-4">
+    <div class="mySwiper">
+    <div class="swiper-wrapper" id="result"  >
+      
+     
+    </div>
+  </div>
+    <div class="swiper-button-next">
+      <button type="button" class="slick-next slick-arrow" style=""><i class="bi bi-caret-right"></i></button>
+    </div>
+    <div class="swiper-button-prev" style="position: absolute; left: 50px;">
+      <button type="button" class="slick-prev slick-arrow" style=""><i class="bi bi-caret-left"></i></button>
+    </div>
+    <div class=" custom-pagination swiper-pagination "  ></div>
+  </div>
+        </div>
+        <div class="col-md-2"></div>
+
+      </div>
+     </div>
+    </div>
+  </section>
+
+
+  <!-- Hero Ended here -->
+
+
+
+  <!-- Footer Section Start  -->
+
+  <div class="row line mt-0 "></div>
+</div>
+<div class="container-fluid space-container footer ">
+  <div class="row justify-content-evenly py-5">
+    <div class="col-md-6 col-lg-3">
+      <h5 class="footer-h5">
+        Discover
+      </h5>
+      <ul class="footer-list">
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Handbook</a></li>
+        <li><a href="#">Content</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Tools</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <h5 class="footer-h5">
+        Download
+      </h5>
+      <ul class="footer-list">
+        <li><a href="#">App store</a></li>
+        <li><a href="#">Play store</a></li>
+        <li><a href="#">Huawei</a></li>
+        <li><a href="#">Amazon</a></li>
+        <li><a href="#">Meta quest store</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <h5 class="footer-h5">
+        Support
+      </h5>
+      <ul class="footer-list">
+        <li><a href="#">Press kit</a></li>
+        <li><a href="#">Support</a></li>
+        <li><a href="#">Terms & condition</a></li>
+        <li><a href="#">Privacy poicy</a></li>
+      </ul>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <h5 class="footer-h5">
+        Contact us
+      </h5>
+      <a href="mailto:abced@gmail.com" class="footer-mail">abced@gmail.com</a>
+      <div class="media-icon pt-2" >
+        <a href="#"><img src="./assets/footer-images/ic_baseline-facebook.png" alt=""> </a>
+        <a href="#"><img src="./assets/footer-images/prime_twitter.png" alt=""> </a>
+        <a href="#"><img src="./assets/footer-images/mdi_pinterest.png" alt=""> </i></a>
+        <a href="#"><img src="./assets/footer-images/mdi_youtube.png" alt=""></a>
+        <a href="#"> <img src="./assets/footer-images/ic_outline-discord.png" alt=""></a>
+        <a href="#"><img src="./assets/footer-images/ic_round-tiktok.png" alt=""> </i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid copy">
+  <div class="row  ">
+    <div class="col-12 copyright ">
+      <p>Copyright, 2024 All right reserved</p>
+    </div>
+  </div>
+</div>
+
+  <!-- Footer Section End  -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+ <!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+ 
+ 
+ 
+
+<script>
+    document.getElementById('search-button').addEventListener('click', async function() {
+        const query = document.getElementById('search-query').value;
+
+        // Ensure query is not empty
+        if (!query.trim()) {
+            alert('Please enter a search query.');
+            return;
+        }
+
+        try {
+          const response = await fetch('https://rentaghr.com/', {
+    method: 'POST', // Change this based on your API method
+    headers: {
+        'Content-Type': 'application/json',
+        // 'Authorization': 'Bearer YOUR_API_KEY' // If needed
+    },
+    body: JSON.stringify({ 'user_query': query }) // Adjust based on your API requirements
+});
+
+if (!response.ok) {
+    throw new Error('Network response was not ok');
+}
+
+
+
+
+const data = await response.json(); // Parse JSON data from the response
+// Get images from the API
+let images = data.images.map((value, index) => { 
+    return `
+        <div class="swiper-slide" role="group" aria-label="${index + 1} / ${data.images.length}" style="width: 464px;" data-swiper-slide-index="${index}">
+            <img src="data:image/jpeg;base64,${value}" alt="Image ${index + 1}">
+        </div>`;
+}).join('');
+
+// Inject images into the swiper-wrapper
+document.getElementById('result').innerHTML = images;
+
+// Initialize Swiper (this step is crucial to display the images correctly)
+var swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1,    // Show 1 slide at a time
+    spaceBetween: 10,    // Space between slides
+    loop: true,          // Enable infinite loop
+    navigation: {        // Add navigation buttons if needed
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {        // Add pagination (optional)
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+});
+
+// console.log(images);
+
+// $('#result').html(images)
+
+swiper.update(); 
+           
+
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
+    });
+
+    // Helper function to convert ArrayBuffer to Base64
+    function arrayBufferToBase64(buffer) {
+        let binary = '';
+        const bytes = new Uint8Array(buffer);
+        const len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(binary);
+    }
+</script>
+
+<script>
+    
+    
+    document.getElementById("search-button").addEventListener("click", function() {
+    // Show the search progress message
+    document.getElementById("loadingMessage").style.display = "block";
+
+    // Simulate search delay for demo purposes (you can replace this with actual search logic)
+    setTimeout(function() {
+        // Hide the message once the search is complete
+        document.getElementById("loadingMessage").style.display = "none";
+        document.getElementById("progress-steps").style.display = "block";
+
+        // Show the image container
+        document.getElementById("image-container").style.display = "block";
+        // Show the illustration results
+        document.getElementById('result').style.display = "block";
+    }, 2000); // Simulate a 2-second search delay
+});
+
+</script>
+
+ <!-- Initialize Swiper -->
+ <script>
+   var swiper = new Swiper(".mySwiper", {
+     cssMode: true,
+     navigation: {
+       nextEl: ".swiper-button-next",
+       prevEl: ".swiper-button-prev",
+     },
+     pagination: {
+       el: ".swiper-pagination",
+     },
+     mousewheel: true,
+     keyboard: true,
+   });
+ </script>
+ 
+ <script>
+// Initialize Swiper
+var swiper = new Swiper('.mySwiper', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  on: {
+    init: function() {
+      updateStep();
+    },
+    slideChange: function() {
+      updateStep();
+    }
+  }
+});
+
+// Function to update the steps dynamically
+function updateStep() {
+  const currentSlide = swiper.realIndex + 1;  // Swiper uses zero-based indexing
+  const totalSlides = swiper.slides.length;
+
+  // Update the text content for steps
+  document.getElementById('step-number').textContent = currentSlide;
+  document.getElementById('total-steps').textContent = totalSlides;
+}
+</script>
+
+</body>
+</html>
